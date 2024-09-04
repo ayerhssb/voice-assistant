@@ -1,7 +1,8 @@
 import pyttsx3 as p
 import speech_recognition as sr
 
-from selenium_web import inflow 
+from selenium_web import inflow
+from youtube_automation import * 
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='./Authentication.json'
 # D:/voice asst-python/asst.json
@@ -64,3 +65,15 @@ if "information" in text2:
     speak("searching {} in wikipedia".format(infor))
     assist = inflow()
     assist.get_info(infor)
+
+elif "play" and "video" in text2:
+    speak("What type of video do you want?")
+    with sr.Microphone() as source:
+        r.energy_threshold = 1000
+        r.adjust_for_ambient_noise(source, 1.2)
+        print("listening...")
+        audio = r.listen(source)
+        video = r.recognize_google(audio)
+    speak("searching {} in youtube".format(video))
+    assist = music()
+    assist.play(video)
