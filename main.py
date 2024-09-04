@@ -3,6 +3,7 @@ import speech_recognition as sr
 
 from selenium_web import inflow
 from youtube_automation import * 
+from weather import *
 from news import *
 from jokes import *
 import randfacts
@@ -34,7 +35,8 @@ def speak(text):
 
 r = sr.Recognizer()
 
-speak("Heya, I'm your voice assistant")
+speak("Heya, I'm your voice assistant. Temperature im Ranchi is" + str(temp())+ "and with" + str(des()))
+
 
 with sr.Microphone() as source:
 
