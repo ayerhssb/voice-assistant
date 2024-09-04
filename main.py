@@ -1,5 +1,6 @@
 import pyttsx3 as p
 import speech_recognition as sr
+import datetime
 
 from selenium_web import inflow
 from youtube_automation import * 
@@ -33,9 +34,13 @@ def speak(text):
     engine.runAndWait()
 
 
+today_date=datetime.datetime.now()
+
+
 r = sr.Recognizer()
 
 speak("Heya, I'm your voice assistant. Temperature im Ranchi is" + str(temp())+ "and with" + str(des()))
+speak("Today is " + today_date.strftime("%d") + " " + today_date.strftime("%B") + "and it's currently" + today_date.strftime("%w"))
 
 
 with sr.Microphone() as source:
