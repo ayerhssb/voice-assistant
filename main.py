@@ -4,6 +4,7 @@ import speech_recognition as sr
 from selenium_web import inflow
 from youtube_automation import * 
 from news import *
+import randfacts
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='./Authentication.json'
 # D:/voice asst-python/asst.json
@@ -86,3 +87,8 @@ elif "news" in text2:
     for i in range(len(arr)):
         print(arr[i])
         speak(arr[i])
+
+elif "fact" and "facts" in text2:
+    x=randfacts.getFact()
+    print(x)
+    speak("Did you know that"+ x)
