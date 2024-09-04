@@ -3,6 +3,7 @@ import speech_recognition as sr
 
 from selenium_web import inflow
 from youtube_automation import * 
+from news import *
 import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"]='./Authentication.json'
 # D:/voice asst-python/asst.json
@@ -77,3 +78,11 @@ elif "play" and "video" in text2:
     speak("searching {} in youtube".format(video))
     assist = music()
     assist.play(video)
+
+
+elif "news" in text2:
+    speak("Sure, These are some news headlines")
+    arr=news()
+    for i in range(len(arr)):
+        print(arr[i])
+        speak(arr[i])
